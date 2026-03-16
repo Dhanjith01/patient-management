@@ -1,0 +1,21 @@
+syntax="proto3";
+
+option java_multiple_files=true; //service request and response files split into multiple files
+option java_package="billing";  //code gen, all files in billing package
+
+service BillingService{
+  rpc CreateBillingAccount(BillingRequest) returns(BillingResponse);
+}
+
+//properties of BillingRequest
+message BillingRequest{
+  string patientId=1; //not setting val. helps with serialization and deserialization. //nums are unique
+  string name=2;
+  string email=3;
+}
+
+//properties of BillingResponse
+message BillingResponse{
+  string accountId=1;
+  string status=2;
+}

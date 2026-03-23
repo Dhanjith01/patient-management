@@ -2,6 +2,7 @@ syntax="proto3";
 
 option java_multiple_files=true; //service request and response files split into multiple files
 option java_package="billing";  //code gen, all files in billing package
+option java_outer_classname = "BillingServiceOuterClass";
 
 service BillingService{
   rpc CreateBillingAccount(BillingRequest) returns(BillingResponse);
